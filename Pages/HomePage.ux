@@ -1,0 +1,287 @@
+<Page ux:Class="HomePage" Background="#fff">
+  <Router ux:Dependency="router" />
+  <JavaScript File="HomePage.js" />
+
+  <JavaScript>
+  module.exports = {
+  gotoFirst: function() { router2.goto("firstPage"); },
+  gotoSecond: function() { router2.goto("secondPage"); }
+  };
+  </JavaScript>
+
+  <Text ux:Class="DefaultText2" Color="#fff" Font="BinggraeBold" />
+  <Text ux:Class="DefaultText3" Color="#FFFFFF" Font="Binggrae" />
+  <Text ux:Class="DefaultText4" Color="#7fc5e9" Font="Binggrae" />
+
+  <EdgeNavigator>
+    <Font File="../Assets/Binggrae-Bold.ttf" ux:Global="BinggraeBold" />
+              <Font File="../Assets/Binggrae.ttf" ux:Global="Binggrae" />
+
+    <Panel ux:Name="sidebar" Edge="Left" Width="100%" Margin="0,0,100,0" Background="#2094F3B4" Color="#2094F3B4" Opacity="1">
+      <Panel>
+        <Panel>
+        <Rectangle Color="#FFFFFF" Width="20" Height="2" X="230" Y="30">
+          <Rotation Degrees="45" />
+        </Rectangle>
+        <Rectangle Width="20" Height="2" Color="#FFFFFF" X="230" Y="30">
+          <Rotation Degrees="-45" />
+        </Rectangle>
+        <Image File="../Assets/alarm.png" Width="20" Height="20" X="190" Y="22" />
+      </Panel>
+        <Clicked>
+          <NavigateToggle Target="sidebar" />
+        </Clicked>
+      </Panel>
+      <Hamburger Alignment="TopLeft">
+        <Clicked>
+          <NavigateToggle Target="sidebar" />
+        </Clicked>
+      </Hamburger>
+
+      <Panel HitTestMode="LocalBoundsAndChildren">
+        <Grid Rows="100,50,1*,1*, 1*,1*, 1*,1*, 1*,50">
+          <Grid Row="1">
+            <Image File="../Assets/panda2.png" Width="30" Height="30" Y="-38" X="35">
+            </Image>
+            <Image File="../Assets/icon.png" X="40" Y="-15" Width="30" Height="30" />
+            <DefaultText3 Value="반갑습니다!" FontSize="10" X="90" Y="-25" />
+            <DefaultText3 Value="효민이는 퓨즈중님!" X="90" Y="-23" FontSize="13" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+            <Rectangle Width="200" Height="55" Y="-56" X="25" CornerRadius="20">
+              <Stroke Color="#fff" Width="2" />
+            </Rectangle>
+          </Grid>
+
+          <Grid Row="2">
+            <DefaultText3 Value="홈" X="100" Y="15" />
+            <Image File="../Assets/h2.png" Y="-20" X="40" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="3">
+            <DefaultText3 Value="마이페이지" X="100" Y="17" />
+            <DefaultText2 Value="MY" X="42" Y="-15" FontSize="20" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="4">
+            <DefaultText3 Value="쿠폰함" X="100" Y="15" />
+            <Image File="../Assets/card.png" Y="-20" X="40" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="5">
+            <DefaultText3 Value="모바일영수증" X="100" Y="13" />
+            <Image File="../Assets/bill.png" Y="-20" X="42" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="6">
+            <DefaultText3 Value="고객센터" X="100" Y="13" />
+            <Image File="../Assets/mic.png" Y="-20" X="40" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="7">
+            <DefaultText3 Value="설정" X="100" Y="13" />
+            <Image File="../Assets/set.png" Y="-20" X="42" />
+            <WhilePressed>
+              <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+            </WhilePressed>
+          </Grid>
+          <Grid Row="8" Alignment="Bottom">
+            <DefaultText3 Value="알림 설정" X="100" Y="50" />
+            <DefaultText3 Value="OFF" X="190" Y="8" FontSize="10" />
+            <DefaultText3 Value="ON" X="240" Y="-10" FontSize="10" />
+          </Grid>
+          <Grid Row="9">
+            <DefaultText3 Value="로그아웃" X="100" Y="50" />
+            <Image File="../Assets/door.png" Y="20" X="200" Width="35" Height="35" />
+            <WhilePressed>
+                          <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+                        </WhilePressed>
+                      </Grid>
+
+            <Switch Margin="20" Y="-70" X="180" />
+      </Grid>
+    </Panel>
+
+      <Shadow ux:Name="shadow" Color="#0000" Angle="100" Size="80" Distance="8" />
+        <ActivatingAnimation>
+          <Change shadow.Color="#0005" />
+          <Change sidebarFade.Opacity="1" />
+        </ActivatingAnimation>
+      </Panel>
+
+                    <Image File="../Assets/logo2.png" Alignment="Top" Height="30" Y="15" />
+    <Rectangle ux:Name="stroke" LayoutMaster="layo1" CornerRadius="20" Width="120%">
+            <Stroke Width="3" Color="#7fc5e9" />
+            <Image File="../Assets/panda.png" X="10" Width="30" Height="30" Y="-25" />
+            <LayoutAnimation>
+            <Move RelativeTo="PositionChange" X="1" Duration="0.2" />
+          </LayoutAnimation>
+        </Rectangle>
+
+                <Router ux:Name="router2" />
+
+      <Panel>
+        <Navigator DefaultTemplate="firstPage">
+          <Page ux:Template="firstPage">
+            <PageControl ux:Name="costumer" Width="100%" Height="150" Y="300">
+              <Page ux:Name="costumer1">
+                <Image File="../Assets/jeju.jpg">
+                </Image>
+              </Page>
+              <Page ux:Name="costumer0">
+                <Image File="../Assets/불닭볶음탕.jpg" Clicked="{goToNew}" />
+              </Page>
+              <Page ux:Name="costumer2">
+                <Image File="../Assets/까르보.jpg">
+                </Image>
+              </Page>
+              <Page ux:Name="costumer3">
+                <Image File="../Assets/더위.jpg">
+                </Image>
+              </Page>
+              <Page ux:Name="costumer4">
+                <Image File="../Assets/빵.jpg">
+                </Image>
+              </Page>
+            </PageControl>
+
+          </Page>
+        <Page ux:Template="secondPage">
+          <PageControl ux:Name="hot" Width="100%" Height="150" Y="300">
+            <Page ux:Name="hot1">
+              <Image File="../Assets/맥스봉.jpg">
+              </Image>
+            </Page>
+            <Page ux:Name="hot2">
+              <Image File="../Assets/idol.jpg">
+              </Image>
+            </Page>
+            <Page ux:Name="hot3">
+              <Image File="../Assets/짜장.jpg">
+              </Image>
+            </Page>
+            <Page ux:Name="hot4">
+              <Image File="../Assets/ban.jpg">
+              </Image>
+            </Page>
+          </PageControl>
+        </Page>
+                </Navigator>
+                <Rectangle Height="220" Width="220" Y="270" CornerRadius="20">
+                  <Stroke Width="2" Color="#7fc5e9" />
+                  <Button Text="고객맞춤" Clicked="{gotoFirst}" X="4" Y="-53">
+                    <Clicked>
+                      <Set stroke.LayoutMaster="layo1" />
+                    </Clicked>
+                  </Button>
+                  <Button Text="HOT" Clicked="{gotoSecond}" X="167" Y="-53">
+                    <Clicked>
+                      <Set stroke.LayoutMaster="layo2" />
+                    </Clicked>
+                  </Button>
+                </Rectangle>
+    </Panel>
+
+      <Panel>
+    <Rectangle ux:Name="layo1" Width="100" Height="50" Y="200" X="60" CornerRadius="20" Color="#FEFEFE00">
+    </Rectangle>
+  </Panel>
+  <Panel>
+    <Rectangle ux:Name="layo2" Height="50" Width="100" Y="200" X="210" CornerRadius="20" Color="#FFFFFF">
+    </Rectangle>
+  </Panel>
+  <StackPanel ItemSpacing="3" HitTestMode="LocalBounds" Width="60" Height="60" ContentAlignment="Center">
+  <Each Count="3">
+  <Circle Color="#FFFFFF" Y="-303" X="191" Width="4" Height="4" />
+  </Each>
+  </StackPanel>
+
+  <Page ux:Name="topone" Y="100" Margin="20,0,20,0">
+  <ScrollView AllowedScrollDirections="Horizontal">
+        <StackPanel ItemSpacing="20" Orientation="Horizontal">
+
+            <Circle Width="60" Height="60" X="20" Color="White" ClipToBounds="true">
+              <Stroke Width="1" Color="#ddd" />
+              <Image File="../Assets/gsgs.png" Margin="5, 5, 5, 5" />
+            </Circle>
+            <Circle Width="60" Height="60" X="40" Color="White" ClipToBounds="true">
+              <Image File="../Assets/cu.png" Margin="2, 2, 2, 2" />
+                <Stroke Width="1" Color="#ddd" />
+            </Circle>
+            <Circle Width="60" Height="60" X="60" Color="White" ClipToBounds="true">
+              <Image File="../Assets/seveneleven.png" />
+                <Stroke Width="1" Color="#ddd" />
+            </Circle>
+            <Circle Width="60" Height="60" X="80" Color="White" ClipToBounds="true">
+              <Image File="../Assets/mini.png" Margin="4, 4, 4, 4" />
+                <Stroke Width="1" Color="#ddd" />
+            </Circle>
+            <Circle Width="60" Height="60" X="100" ClipToBounds="true">
+                <Stroke Width="1" Color="#ddd" />
+                <Rectangle Width="20" Height="5" Color="#7fc5e9" Y="28">
+                  <Rectangle Width="20" Height="5" Color="#7fc5e9">
+                    <Rotation Degrees="90" />
+                  </Rectangle>
+                </Rectangle>
+              </Circle>
+              <Circle Width="60" Height="60" X="100" ClipToBounds="true" />
+              <Circle Width="60" Height="60" X="100" ClipToBounds="true" />
+
+
+        </StackPanel>
+      </ScrollView>
+  </Page>
+
+
+  <Panel ux:Class="searchicon">
+  <Circle X="310" Y="19" Width="18" Height="18">
+    <Stroke Width="2" Color="#FFFFFF" />
+  </Circle>
+
+  <Rectangle Height="3" Color="#FFFFFF" X="324" Y="35" Width="9">
+  <Rotation Degrees="45" />
+  </Rectangle>
+</Panel>
+
+<searchicon>
+  <Clicked>
+      <Panel Width="200" Height="200" Color="Black">
+
+      </Panel>
+  </Clicked>
+</searchicon>
+
+    <Grid Rows="60, 1*">
+                <Grid Row="0" Color="#1F94F170" Opacity="1">
+                  <Shadow Size="3" Distance="1" />
+                  <Hamburger Alignment="Left">
+                    <Clicked>
+                      <NavigateToggle Target="sidebar" />
+                    </Clicked>
+                  </Hamburger>
+                </Grid>
+                <Grid Row="1" />
+                <Rectangle ux:Name="sidebarFade" Row="0" RowSpan="2" Layer="Overlay" Opacity="0" HitTestMode="None" />
+              </Grid>
+
+              <Image File="../Assets/navigation.JPG" Alignment="Bottom" Y="3">
+              </Image>
+
+                        <Image File="../Assets/arrow.png" Y="250" />
+                        <Image File="../Assets/ww.jpg" Alignment="Bottom" X="-1" Y="-40" />
+                        <Image File="../Assets/cloud3.png" Width="50" Height="50" X="300" Y="100" Opacity="0.2" />
+                        <Image File="../Assets/cloud3.png" Width="100" Height="100" X="30" Y="100" Opacity="0.2" />
+                          <Image File="../Assets/cloud3.png" Width="100" Height="100" X="300" Y="200" Opacity="0.2" />
+            </EdgeNavigator>
+  </Page>

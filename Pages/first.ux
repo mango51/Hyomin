@@ -1,0 +1,28 @@
+<Page ux:Class="first">
+  <Router ux:Dependency="router" />
+  <JavaScript File="first.js" />
+
+	<Panel Width="50%" Height="10%" Alignment="Default" Y="440">
+		<convgo.Button Text="Get Started" Alignment="Center" Clicked="{goToHomePage}">
+    </convgo.Button>
+	</Panel>
+
+  <StackPanel Margin="10">
+    <Rectangle Margin="20" Padding="10" Width="50%" Height="40" CornerRadius="5" Color="#fff" Y="330" X="90">
+      <TextInput ux:Name="text" PlaceholderText="이름을 써주세요!" PlaceholderColor="#ddd" />
+      </Rectangle>
+      <Rectangle Height="2" Width="200" Color="#ddd" Y="310" />
+    </StackPanel>
+
+  <Panel ux:Name="clouds">
+  <Image File="../Assets/cloud3.png" Width="100" Height="100" X="30" Y="150" Opacity="1" />
+  <Image File="../Assets/panda.png" Width="40" Height="40" X="321" Y="191">
+  <Rotation Degrees="10" />
+  </Image>
+    <Image File="../Assets/cloud3.png" Width="100" Height="100" X="300" Y="200" Opacity="1" />
+	<Image File="../Assets/ww.jpg" Alignment="Bottom" Y="6" StretchMode="Uniform" X="-1" Width="105%" />
+  <Image File="../Assets/logo.png" Width="300" Height="70" Y="130" />
+    <Image File="../Assets/cloud3.png" Width="50" Height="50" X="300" Y="120" Opacity="1" />
+
+</Panel>
+</Page>
