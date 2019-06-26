@@ -1,0 +1,16 @@
+<Panel ux:Class="convgo.Button" Margin="10" Padding="10" FontSize="16" Y="-30">
+  <string ux:Property="Text" />
+  <float ux:Property="FontSize" />
+    <Text ux:Class="DefaultText7" Font="Binggrae" />
+
+  <Rectangle Layer="Background" Color="#E1FCFE" CornerRadius="15" Width="150">
+    <DropShadow Angle="90" Distance="1" Spread="0.2" Size="2" Color="#00000060" />
+    			<Stroke Color="#B4F8FD" Alignment="Inside" Width="3" />
+  </Rectangle>
+
+  <DefaultText7 Value="{ReadProperty Text}" FontSize="{ReadProperty FontSize}" TextAlignment="Center" />
+
+  <WhilePressed>
+    <Scale Factor=".95" Duration=".08" Easing="QuadraticOut" />
+  </WhilePressed>
+</Panel>

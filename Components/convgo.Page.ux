@@ -1,0 +1,4 @@
+<Page ux:Class="conv.Page">
+  <Image Layer="Background" Color="#FFFFFF" Opacity="0.7" />
+
+</Page>
